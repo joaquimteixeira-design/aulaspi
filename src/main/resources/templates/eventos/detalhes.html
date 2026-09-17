@@ -5,6 +5,8 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <title>Eventos</title>
 </head>
 <body>
@@ -69,32 +71,39 @@
 		</div>
 
 		<div class="row">
-    <div class="col s12">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">Convidados</span>
-                <table class="highlight"> <!-- Correção da grafia de highlight -->
-                    <thead>
-                        <tr>
-                            <th>Id:</th>
-                            <th>Nome:</th>
-                            <th>Rg:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Alterado para ${convidado} para bater com o Controller -->
-                        <tr th:each="c : ${convidado}">
-                            <td th:text="${c.id}">1</td>
-                            <td th:text="${c.nome}">Fernando Soares</td> <!-- Corrigido para c.nome -->
-                            <td th:text="${c.rg}">123</td>               <!-- Corrigido para c.rg -->
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-		
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Convidados</span>
+						<table class="highlight">
+							<thead>
+								<tr>
+									<th>Id:</th>
+									<th>Nome:</th>
+									<th>Rg:</th>
+									<th></th>
+									<!-- Cabeçalho vazio para a coluna do botão -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="c : ${convidado}">
+									<td th:text="${c.id}">1</td>
+									<td th:text="${c.nome}">Fernando Soares</td>
+									<td th:text="${c.rg}">123</td>
+									<!-- Botão de remover que envia o ID do Evento e o ID do Convidado -->
+									<td><a
+										th:href="@{/eventos/{idEvento}/convidados/{idConvidado}/remover(idEvento=${evento.id}, idConvidado=${c.id})}">
+											<i class="material-icons">delete</i>
+									</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 
 
 
