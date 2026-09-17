@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <!-- Compiled and minified CSS -->
@@ -15,28 +15,37 @@
 
 		<form action="/eventos" method="post">
 
+            <div>
+				<input type="hidden" name="id" th:value="${evento.id}" readonly="readonly">
+			</div>
+
+
 			<div>
-				<label>Nome:</label> <input type="text" name="nome">
+				<label>Nome:</label> 
+				<input type="text" name="nome" th:value="${evento.nome}">
 			</div>
 
 			<div>
-				<label>Local:</label> <input type="text" name="Local">
+				<!-- Corrigido para 'local' -->
+				<label>Local:</label> 
+				<input type="text" name="local" th:value="${evento.local}">
 			</div>
 
 			<div>
-				<label>Data:</label> <input type="text" name="data">
+				<label>Data:</label> 
+				<input type="text" name="data" th:value="${evento.data}">
 			</div>
 
 			<div>
-				<label>Nome:</label> <input type="text" name="Horarío">
+				<!-- Corrigido para 'horario' -->
+				<label>Horário:</label> 
+				<input type="text" name="horario" th:value="${evento.horario}">
 			</div>
 
 			<div>
 				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
 				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
 			</div>
-
-
 
 		</form>
 	</div>
